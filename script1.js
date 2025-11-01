@@ -1,6 +1,5 @@
 // Carrito de compras
 let cart = [];
-let cartCount = 0;
 
 // Elementos del DOM
 const cartCountElement = document.querySelector('.cart-count');
@@ -9,7 +8,7 @@ const cartIcon = document.querySelector('.cart-icon');
 
 // Función para actualizar el contador del carrito
 function updateCartCount() {
-    cartCount = cart.reduce((total, item) => total + item.quantity, 0);
+    const cartCount = cart.reduce((total, item) => total + item.quantity, 0);
     cartCountElement.textContent = cartCount;
 }
 
@@ -33,7 +32,6 @@ function addToCart(productName, price) {
 
 // Función para mostrar notificación
 function showNotification(message) {
-    // Crear elemento de notificación
     const notification = document.createElement('div');
     notification.style.cssText = `
         position: fixed;
@@ -52,7 +50,6 @@ function showNotification(message) {
 
     document.body.appendChild(notification);
 
-    // Remover notificación después de 3 segundos
     setTimeout(() => {
         notification.style.transform = 'translateX(400px)';
         setTimeout(() => {
@@ -64,8 +61,8 @@ function showNotification(message) {
 // Event listeners para botones de añadir al carrito
 addToCartButtons.forEach(button => {
     button.addEventListener('click', function() {
-        const productName = this.getAttribute('data-product');
-        const price = parseInt(this.getAttribute('data-price'));
+        const productName = this.dataset.product;
+        const price = parseInt(this.dataset.price);
         addToCart(productName, price);
     });
 });
@@ -91,14 +88,11 @@ cartIcon.addEventListener('click', function() {
 
 // Smooth scroll para navegación
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
+    anchor.addEventListener('click', function(e) {
         e.preventDefault();
         const target = document.querySelector(this.getAttribute('href'));
         if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
+            target.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
     });
 });
@@ -110,14 +104,12 @@ window.addEventListener('scroll', function() {
         navbar.style.background = 'rgba(255, 255, 255, 0.95)';
         navbar.style.backdropFilter = 'blur(10px)';
     } else {
-        navbar.style.background = '#fff';
+        navbar.style.background = '#fff0f5';
         navbar.style.backdropFilter = 'none';
     }
 });
 
 // CTA button functionality
 document.querySelector('.cta-button').addEventListener('click', function() {
-    document.querySelector('#productos').scrollIntoView({
-        behavior: 'smooth'
-    });
+    document.querySelector('#productos').scrollIntoView({ behavior: 'smooth' });
 });
