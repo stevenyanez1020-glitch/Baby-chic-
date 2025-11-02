@@ -23,6 +23,8 @@ BabyStyle is a static e-commerce website for baby clothing, featuring a clean pr
 - Notification system for cart updates
 
 ## Recent Changes
+- 2025-11-02: Expanded catalog to 24 total products with real photos from Instagram
+- 2025-11-02: Added 12 more products including Disney items, denim, rompers, and dresses
 - 2025-11-02: Added 17 real product images from @baby_chic_chile Instagram account
 - 2025-11-02: Updated product catalog with 12 real products using actual photos
 - 2025-11-02: Fixed script reference in index.html to use script1.js (contains shopping cart functionality)
